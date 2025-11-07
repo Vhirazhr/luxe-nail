@@ -164,6 +164,8 @@
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 20;
 }
 
 .btn-hero {
@@ -178,6 +180,8 @@
     display: inline-flex;
     align-items: center;
     text-decoration: none;
+    position: relative;
+    z-index: 20;
 }
 
 .btn-hero:hover {
@@ -200,6 +204,8 @@
     align-items: center;
     text-decoration: none;
     backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 20;
 }
 
 .btn-hero-secondary:hover {
@@ -1053,6 +1059,273 @@
                 font-size: 14px;
             }
         }
+        .thank-you-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thank-you-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .checkmark-container {
+            margin-bottom: 2rem;
+        }
+
+        .checkmark-icon {
+            font-size: 5rem;
+            color: var(--success);
+            animation: bounceIn 0.6s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .thank-you-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thank-you-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--dark-pink), var(--medium-pink));
+        }
+
+        .checkmark-container {
+            margin-bottom: 2rem;
+        }
+
+        .checkmark-icon {
+            font-size: 5rem;
+            color: var(--dark-pink);
+            animation: bounceIn 0.6s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+           .thank-you-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thank-you-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--dark-pink), var(--medium-pink));
+        }
+
+        .checkmark-container {
+            margin-bottom: 2rem;
+        }
+
+        .checkmark-icon {
+            font-size: 5rem;
+            color: var(--dark-pink);
+            animation: bounceIn 0.6s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .thank-you-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-size: 2.5rem;
+        }
+
+        .thank-you-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .reservation-details-card {
+            background: linear-gradient(135deg, var(--baby-pink) 0%, var(--soft-pink) 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(216, 122, 135, 0.2);
+            position: relative;
+        }
+
+        .queue-number-badge {
+            background: linear-gradient(135deg, var(--dark-pink), var(--medium-pink));
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(216, 122, 135, 0.3);
+        }
+
+        .reservation-info {
+            text-align: left;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(216, 122, 135, 0.1);
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-item i {
+            color: var(--dark-pink);
+            width: 20px;
+        }
+
+        .info-label {
+            color: var(--text-dark);
+            min-width: 140px;
+            font-weight: 500;
+        }
+
+        .info-value {
+            color: var(--text-dark);
+            margin-left: auto;
+            font-weight: 600;
+        }
+
+        .confirmation-message {
+            background: rgba(248, 215, 218, 0.5);
+            color: var(--text-dark);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            border: 1px solid var(--baby-pink);
+            font-weight: 500;
+        }
+
+        .confirmation-message i {
+            color: var(--dark-pink);
+        }
+
+        /* Custom Button Style */
+        .btn-home {
+            background: linear-gradient(135deg, var(--accent-gold), #ffed4e);
+            color: var(--text-dark) !important;
+            border: 3px solid var(--accent-gold);
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            position: relative;
+            z-index: 20;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-home:hover {
+            background: var(--text-dark);
+            color: var(--accent-gold) !important;
+            border-color: var(--text-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .thank-you-card {
+                padding: 2rem 1rem;
+                margin: 1rem;
+            }
+            
+            .thank-you-title {
+                font-size: 2rem;
+            }
+            
+            .info-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .info-value {
+                margin-left: 0;
+            }
+            
+            .info-label {
+                min-width: auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .thank-you-card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .reservation-details-card {
+                padding: 1.5rem;
+            }
+            
+            .queue-number-badge {
+                font-size: 1.3rem;
+                padding: 0.6rem 1.5rem;
+            }
+            
+            .btn-home {
+                padding: 10px 25px;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1065,7 +1338,7 @@
                     <div class="logo-text">LUXE NAIL</div>
                 </div>
                 <nav class="d-none d-lg-flex align-items-center">
-                    <a class="nav-link" href="#home">Home</a>
+                    <a class="nav-link" href="{{ route('home') }}">Home</a>
                     <a class="nav-link" href="#about">About</a>
                     <a class="nav-link" href="#services">Services</a>
                     <a class="nav-link" href="#gallery">Gallery</a>
@@ -1381,6 +1654,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize slider
     initSlider();
+});
+// Handle anchor links setelah kembali ke home page
+document.addEventListener('DOMContentLoaded', function() {
+    // Cek jika URL mengandung anchor
+    if (window.location.hash) {
+        const targetId = window.location.hash;
+        const target = document.querySelector(targetId);
+        
+        if (target) {
+            setTimeout(() => {
+                const headerHeight = document.querySelector('.luxe-header').offsetHeight;
+                const targetPosition = target.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }, 100);
+        }
+    }
 });
     </script>
 </body>

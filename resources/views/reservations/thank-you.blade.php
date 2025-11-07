@@ -5,30 +5,53 @@
 @section('content')
     <div class="container" style="padding-top: 120px; padding-bottom: 80px;">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="thank-you-section">
-                    <div class="mb-4">
-                        <i class="fas fa-check-circle" style="font-size: 5rem; color: var(--dark-pink);"></i>
+            <div class="col-md-8 col-lg-6">
+                <div class="thank-you-card">
+                    <!-- Animated Checkmark -->
+                    <div class="checkmark-container">
+                        <i class="fas fa-check-circle checkmark-icon"></i>
                     </div>
-                    <h1 style="color: var(--text-dark);">Thank You!</h1>
-                    <p class="reservation-details">Your reservation has been submitted successfully.</p>
+                    
+                    <!-- Main Title -->
+                    <h1 class="thank-you-title">Thank You!</h1>
+                    <p class="thank-you-subtitle">Your reservation has been submitted successfully</p>
                     
                     @if($reservation)
-                        <div class="queue-number">{{ $reservation->queue_number }}</div>
-                        <p class="reservation-details">
-                            Your reservation schedule: 
-                            <strong>{{ $reservation->reservation_date->format('F j, Y') }} at {{ $reservation->reservation_time }}</strong>
-                        </p>
-                        <p class="reservation-details">
-                            Treatment: 
-                            <strong>{{ $reservation->treatment_type == 'nail_extension' ? 'Nail Extension' : 'Nail Art' }}</strong>
-                        </p>
+                        <!-- Reservation Details Card -->
+                        <div class="reservation-details-card">
+                            <div class="queue-number-badge">
+                                {{ $reservation->queue_number }}
+                            </div>
+                            
+                            <div class="reservation-info">
+                                <div class="info-item">
+                                    <i class="fas fa-calendar-alt me-2"></i>
+                                    <span class="info-label">Reservation Date:</span>
+                                    <strong class="info-value">{{ $reservation->reservation_date->format('F j, Y') }} at {{ $reservation->reservation_time }}</strong>
+                                </div>
+                                
+                                <div class="info-item">
+                                    <i class="fas fa-spa me-2"></i>
+                                    <span class="info-label">Treatment:</span>
+                                    <strong class="info-value">{{ $reservation->treatment_type == 'nail_extension' ? 'Nail Extension' : 'Nail Art' }}</strong>
+                                </div>
+                            </div>
+                        </div>
                     @endif
                     
-                    <p class="mt-4">We'll contact you soon to confirm your appointment.</p>
-                    <a href="{{ route('home') }}" class="btn btn-hero mt-3">Back to Home</a>
+                    <!-- Confirmation Message -->
+                    <div class="confirmation-message">
+                        <i class="fas fa-comment-dots me-2"></i>
+                        We'll contact you soon to confirm your appointment
+                    </div>
+                    
+                    <!-- Action Button -->
+                    <div class="text-center mt-4">
+                        <a href="{{ route('home') }}" class="btn btn-home">
+                            <i class="fas fa-home me-2"></i>Back to Home
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-@endsection
