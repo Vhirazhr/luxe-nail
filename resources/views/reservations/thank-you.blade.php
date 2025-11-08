@@ -42,11 +42,17 @@
                     <!-- Confirmation Message -->
                     <div class="confirmation-message">
                         <i class="fas fa-comment-dots me-2"></i>
-                        We'll contact you soon to confirm your appointment
+                        Download this Appointment sheet and We'll contact you soon to confirm your appointment
                     </div>
                     
-                    <!-- Action Button -->
+                    <!-- Action Buttons -->
                     <div class="text-center mt-4">
+                        <!-- Tombol Download PDF -->
+                        <a href="/reservations/{{ $reservation->queue_number }}/download" class="btn btn-download me-3">
+                            <i class="fas fa-download me-2"></i>Download PDF
+                        </a>
+                        
+                        <!-- Tombol Back to Home -->
                         <a href="{{ route('home') }}" class="btn btn-home">
                             <i class="fas fa-home me-2"></i>Back to Home
                         </a>
@@ -55,14 +61,3 @@
             </div>
         </div>
     </div>
-    <script>
-    window.onload = function() {
-        const queueNumber = "{{ $reservation->queue_number }}";
-        if (queueNumber) {
-            // Arahkan ke route download PDF otomatis
-            window.location.href = `/reservations/${queueNumber}/download`;
-        }
-    };
-</script>
-
-@endsection

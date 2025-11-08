@@ -1097,82 +1097,6 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
-        .thank-you-card {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem 2rem;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .thank-you-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--dark-pink), var(--medium-pink));
-        }
-
-        .checkmark-container {
-            margin-bottom: 2rem;
-        }
-
-        .checkmark-icon {
-            font-size: 5rem;
-            color: var(--dark-pink);
-            animation: bounceIn 0.6s ease-out;
-        }
-
-        @keyframes bounceIn {
-            0% { transform: scale(0.3); opacity: 0; }
-            50% { transform: scale(1.05); }
-            70% { transform: scale(0.9); }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-           .thank-you-card {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem 2rem;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .thank-you-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--dark-pink), var(--medium-pink));
-        }
-
-        .checkmark-container {
-            margin-bottom: 2rem;
-        }
-
-        .checkmark-icon {
-            font-size: 5rem;
-            color: var(--dark-pink);
-            animation: bounceIn 0.6s ease-out;
-        }
-
-        @keyframes bounceIn {
-            0% { transform: scale(0.3); opacity: 0; }
-            50% { transform: scale(1.05); }
-            70% { transform: scale(0.9); }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
         .thank-you-title {
             font-weight: 700;
             margin-bottom: 0.5rem;
@@ -1244,15 +1168,38 @@
             color: var(--text-dark);
             padding: 1rem 1.5rem;
             border-radius: 10px;
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            margin: 1.5rem 0;
+            justify-content: flex-start; 
+            margin: 2rem 0 2.5rem 0;
             border: 1px solid var(--baby-pink);
             font-weight: 500;
+            text-align: left; 
         }
 
         .confirmation-message i {
             color: var(--dark-pink);
+            flex-shrink: 0; 
+        }
+
+        /* Responsive adjustments untuk tombol */
+        @media (max-width: 576px) {
+            .btn-download {
+                padding: 10px 25px;
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+            
+            .text-center .btn {
+                display: inline-block;
+                margin: 5px;
+            }
+
+            /* Responsive untuk confirmation message */
+            .confirmation-message {
+                padding: 0.8rem 1rem;
+                font-size: 0.95rem;
+            }
         }
 
         /* Custom Button Style */
@@ -1279,6 +1226,44 @@
             border-color: var(--text-dark);
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .btn-download {
+            background: linear-gradient(135deg, var(--dark-pink), var(--medium-pink));
+            color: white !important;
+            border: 3px solid var(--dark-pink);
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            position: relative;
+            z-index: 20;
+            box-shadow: 0 4px 15px rgba(216, 122, 135, 0.3);
+        }
+
+        .btn-download:hover {
+            background: var(--text-dark);
+            color: white !important;
+            border-color: var(--text-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Responsive adjustments untuk tombol */
+        @media (max-width: 576px) {
+            .btn-download {
+                padding: 10px 25px;
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+            
+            .text-center .btn {
+                display: inline-block;
+                margin: 5px;
+            }
         }
 
         /* Responsive adjustments */
