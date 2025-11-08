@@ -133,10 +133,6 @@
             <td><strong>Reservation Time</strong></td>
             <td>{{ $reservation->reservation_time }}</td>
         </tr>
-        <tr>
-            <td><strong>Status</strong></td>
-            <td style="text-transform: capitalize;">{{ $reservation->status }}</td>
-        </tr>
     </table>
 
     <div class="footer">
