@@ -45,11 +45,28 @@
                                 <input type="date" class="form-control" id="reservation_date" name="reservation_date" min="{{ date('Y-m-d') }}" required>
                             </div>
                             
-                            <div class="col-md-3 mb-3">
-                                <label for="reservation_time" class="form-label">Reservation Time</label>
-                                <input type="time" class="form-control" id="reservation_time" name="reservation_time" required>
-                            </div>
-                        </div>
+                        <div class="col-md-3 mb-3">
+    <label for="reservation_time" class="form-label">Reservation Time</label>
+    <select class="form-select" id="reservation_time" name="reservation_time" required>
+        <option value="">Select Time</option>
+        <option value="08:00">8:00</option>
+        <option value="09:00">9:00</option>
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+        <option value="12:00">12:00</option>
+        <option value="13:00">13:00</option>
+        <option value="14:00">14:00</option>
+        <option value="15:00">15:00</option>
+        <option value="16:00">16:00</option>
+        <option value="17:00">17:00</option>
+        <option value="18:00">18:00</option>
+        <option value="19:00">19:00</option>
+        <option value="20:00">20:00</option>
+        <option value="21:00">21:00</option>
+        <option value="22:00">22:00</option>
+    </select>
+    <div class="form-text">We're open from 8:00 AM to 10:00 PM</div>
+</div>
                         
                         <div class="text-center mt-4">
                             <button type="submit" class="btn btn-submit" id="submitBtn">
@@ -68,7 +85,7 @@
     <!-- SweetAlert CDN -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-       document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function() {
     const bookingForm = document.getElementById('bookingForm');
     const submitBtn = document.getElementById('submitBtn');
     const submitText = document.getElementById('submitText');
@@ -131,11 +148,10 @@
         });
     });
 
-    // HAPUS real-time validation - biar tidak double alert
+    // Clear time ketika date berubah
     const dateInput = document.getElementById('reservation_date');
     const timeInput = document.getElementById('reservation_time');
 
-    // Cukup clear time ketika date berubah (optional)
     dateInput.addEventListener('change', function() {
         timeInput.value = '';
     });

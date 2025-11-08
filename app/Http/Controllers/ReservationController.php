@@ -26,6 +26,18 @@ class ReservationController extends Controller
         'reservation_time' => 'required|date_format:H:i'
     ]);
 
+    // Validasi jam operasional (8:00 - 22:00) - PERBAIKI
+    $reservationTime = Carbon::parse($validated['reservation_time']);
+    $openTime = Carbon::parse('08:00');
+    $closeTime = Carbon::parse('22:00');
+
+    // Jam 22:00 masih boleh, 22:01 sudah tidak
+    if ($reservationTime->lt($openTime) || $reservationTime->gt($closeTime)) {
+        return response()->json([
+            'success' => false
+        ], 422);
+    }
+
     // Cek apakah sudah mencapai batas 8 booking di tanggal yang sama
     $existingBookings = Reservation::where('reservation_date', $validated['reservation_date'])
         ->count();
@@ -164,6 +176,19 @@ class ReservationController extends Controller
         return response()->json([
             'available' => false,
             'message' => 'Cannot book for past dates. Please choose a future date.'
+        ]);
+    }
+
+    // Check if time is within operating hours (8:00 - 22:00) - PERBAIKI
+    $reservationTime = Carbon::parse($time);
+    $openTime = Carbon::parse('08:00');
+    $closeTime = Carbon::parse('22:00');
+
+    // Jam 22:00 masih boleh, 22:01 sudah tidak
+    if ($reservationTime->lt($openTime) || $reservationTime->gt($closeTime)) {
+        return response()->json([
+            'available' => false,
+            'message' => 'We are only open from 8:00 AM to 10:00 PM. Please select a time within our operating hours.'
         ]);
     }
 
