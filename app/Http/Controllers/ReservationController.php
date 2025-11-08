@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ReservationController extends Controller
 {
@@ -26,7 +27,7 @@ class ReservationController extends Controller
 
         // Generate queue number
         $queueNumber = $this->generateQueueNumber();
-        
+
         $reservation = Reservation::create([
             'name' => $validated['name'],
             'address' => $validated['address'],
@@ -45,12 +46,22 @@ class ReservationController extends Controller
     {
         $queueNumber = $request->query('queue_number');
         $reservation = Reservation::where('queue_number', $queueNumber)->first();
-        
+
         return view('reservations.thank-you', compact('reservation'));
     }
 
     private function generateQueueNumber()
     {
         return 'LX' . date('Ymd') . strtoupper(Str::random(4));
+    }
+
+    public function downloadPdf($queueNumber)
+    {
+        $reservation = Reservation::where('queue_number', $queueNumber)->firstOrFail();
+
+        $pdf = Pdf::loadView('reservations.pdf', compact('reservation'));
+
+        // Nama file bisa disesuaikan
+        return $pdf->download('reservation_' . $queueNumber . '.pdf');
     }
 }

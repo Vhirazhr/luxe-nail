@@ -55,3 +55,14 @@
             </div>
         </div>
     </div>
+    <script>
+    window.onload = function() {
+        const queueNumber = "{{ $reservation->queue_number }}";
+        if (queueNumber) {
+            // Arahkan ke route download PDF otomatis
+            window.location.href = `/reservations/${queueNumber}/download`;
+        }
+    };
+</script>
+
+@endsection
