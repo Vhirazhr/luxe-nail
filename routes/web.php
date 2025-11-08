@@ -16,3 +16,4 @@ Route::get('/reservations/{queue_number}/download', [ReservationController::clas
 Route::get('/calendar', [ReservationController::class, 'calendar'])->name('calendar');
 Route::get('/schedule-data', [ReservationController::class, 'getScheduleData'])->name('schedule.data');
 Route::get('/date-details/{date}', [ReservationController::class, 'getDateDetails'])->name('date.details');
+Route::get('/check-availability', [ReservationController::class, 'checkAvailability']);
