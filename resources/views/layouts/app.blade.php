@@ -1328,6 +1328,7 @@
                     <a class="nav-link" href="#services">Services</a>
                     <a class="nav-link" href="#gallery">Gallery</a>
                     <a class="nav-link" href="#contact">Contact</a>
+                    <a class="nav-link" href="{{ route('calendar') }}">Schedule</a>
                     <a class="btn btn-book" href="{{ route('reservations.create') }}">Book Now</a>
                 </nav>
                 <div class="d-lg-none">

@@ -13,3 +13,6 @@ Route::post('/reservations', [ReservationController::class, 'store'])->name('res
 Route::get('/reservations/thank-you', [ReservationController::class, 'thankYou'])->name('reservations.thank-you');
 Route::get('/reservations/{queue_number}/download', [ReservationController::class, 'downloadPdf'])
     ->name('reservations.download');
+Route::get('/calendar', [ReservationController::class, 'calendar'])->name('calendar');
+Route::get('/schedule-data', [ReservationController::class, 'getScheduleData'])->name('schedule.data');
+Route::get('/date-details/{date}', [ReservationController::class, 'getDateDetails'])->name('date.details');

@@ -6,6 +6,7 @@ use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 
 class ReservationController extends Controller
 {
@@ -61,7 +62,61 @@ class ReservationController extends Controller
 
         $pdf = Pdf::loadView('reservations.pdf', compact('reservation'));
 
-        // Nama file bisa disesuaikan
         return $pdf->download('reservation_' . $queueNumber . '.pdf');
+    }
+
+    public function calendar()
+    {
+        return view('reservations.calendar');
+    }
+
+    public function getScheduleData(Request $request)
+    {
+        $month = $request->month;
+    $year = $request->year;
+    
+
+    $today = now()->format('Y-m-d'); 
+    
+    $reservations = Reservation::whereMonth('reservation_date', $month)
+                              ->whereYear('reservation_date', $year)
+                              ->get();
+
+        $scheduleData = [];
+foreach ($reservations as $reservation) {
+    $date = $reservation->reservation_date->format('Y-m-d');
+    if (!isset($scheduleData[$date])) {
+        $scheduleData[$date] = [];
+    }
+    
+    $scheduleData[$date][] = [
+        'time' => $reservation->reservation_time,
+        'name' => $reservation->name,
+        'treatment' => $reservation->treatment_type,
+        'phone' => $reservation->phone,
+        'queue_number' => $reservation->queue_number,
+        'is_today' => ($date === $today)
+    ];
+}
+
+        return response()->json([
+            'scheduleData' => $scheduleData,
+            'month' => $month,
+            'year' => $year
+        ]);
+    }
+
+    public function getDateDetails($date)
+    {
+        $reservations = Reservation::where('reservation_date', $date)
+            ->whereIn('status', ['pending', 'confirmed'])
+            ->orderBy('reservation_time')
+            ->get();
+
+        return response()->json([
+            'date' => $date,
+            'reservations' => $reservations,
+            'formatted_date' => Carbon::parse($date)->format('F j, Y')
+        ]);
     }
 }
