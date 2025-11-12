@@ -30,6 +30,7 @@
                     <a class="nav-link" href="#contact">Contact</a>
                     <a class="nav-link" href="{{ route('calendar') }}">Schedule</a>
                     <a class="btn btn-book" href="{{ route('reservations.create') }}">Book Now</a>
+                    <a class="btn btn-login-nav" href="{{ route('login') }}">Login</a>
                 </nav>
                 <div class="d-lg-none">
                     <button class="btn btn-book" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">

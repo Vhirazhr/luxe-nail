@@ -97,6 +97,25 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
+        .btn-login-nav {
+    background-color: #ef909d; 
+    color: #fff;
+    border: 2px solid #ef909d; 
+    border-radius: 25px;
+    padding: 10px 28px; 
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    line-height: 1.2;
+}
+
+.btn-login-nav:hover {
+    background-color: #d87a87;
+    border-color: #d87a87;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
         
 .hero-section {
     background: linear-gradient(135deg, var(--soft-pink) 0%, var(--medium-pink) 100%);
