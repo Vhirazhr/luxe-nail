@@ -18,6 +18,10 @@ Route::get('/schedule-data', [ReservationController::class, 'getScheduleData'])-
 Route::get('/date-details/{date}', [ReservationController::class, 'getDateDetails'])->name('date.details');
 Route::get('/check-availability', [ReservationController::class, 'checkAvailability']);
 
+Route::get('/dashboard', function () { 
+    return view('dashboard.index'); 
+});
+
 // LOGIN PAGE
 Route::get('/login', function () {
     return view('auth.login');

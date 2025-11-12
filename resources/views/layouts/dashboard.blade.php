@@ -14,16 +14,24 @@
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 </head>
 <body>
-
     <!-- === SIDEBAR === -->
-    <div class="sidebar">
+    <div class="sidebar text-center">
+        <img src="{{ asset('img/luxe-nail-1.png') }}" 
+            alt="Luxe Nail Logo" 
+            width="80" 
+            height="80" 
+            class="rounded-circle shadow-sm mb-3">
+
         <h4>LUXE NAIL</h4>
-        <a href="#" class="active"><i class="bi bi-house-door me-2"></i> Dashboard</a>
-        <a href="#"><i class="bi bi-person me-2"></i> profile</a>
-        <a href="#"><i class="bi bi-calendar-check me-2"></i> Reservations</a>
-        <a href="#"><i class="bi bi-person-heart me-2"></i> Data Customers</a>
-        <a href="#"><i class="bi bi-cash-stack me-2"></i> Incomes</a>
-        <a href="#"><i class="bi bi-people me-2"></i> Staff</a>
+        <hr class="divider">
+
+        <div class="menu text-start mt-4">
+            <a href="#" class="active"><i class="bi bi-house-door me-2"></i> Dashboard</a>
+            <a href="#"><i class="bi bi-person me-2"></i> Profile</a>
+            <a href="#"><i class="bi bi-calendar-check me-2"></i> Reservations</a>
+            <a href="#"><i class="bi bi-person-heart me-2"></i> Data Customers</a>
+            <a href="#"><i class="bi bi-cash-stack me-2"></i> Incomes</a>
+        </div>
     </div>
 
     <!-- === MAIN CONTENT === -->
@@ -34,12 +42,7 @@
             <h5>Get ready for a productive day with Luxe Nail</h5>
         </div>
         <div class="user-info d-flex align-items-center gap-2">
-            <i class="bi bi-bell fs-5 text-dark"></i>
-            <img src="{{ asset('img/luxe-nail-1.png') }}" 
-                 alt="Luxe Nail Logo" 
-                 width="60" 
-                 height="60" 
-                 class="rounded-circle shadow-sm">
+            <i class="bi bi-bell fs-5 text-secondary"></i>
         </div>
     </div>
 
@@ -80,6 +83,8 @@
             </div>
         </div>
 
+        <hr class="section-divider">
+        
         <!-- === CONTENT AREA (Dynamic Section) === -->
         <div class="mt-5">
             @yield('content')

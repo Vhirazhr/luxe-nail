@@ -8,7 +8,7 @@
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h3 class="bold" style="color:#ffffff; font-family:'Georgia', serif;">Recent Reservations</h3>
         <a href="#" class="btn btn-sm text-light px-3 py-2" 
-           style="background-color:#451a2b; border:none; border-radius:10px; font-family:'Georgia', serif;">
+           style="background-color:#ee9ca7; border:none; border-radius:10px; font-family:'Georgia', serif;">
             See all →
         </a>
     </div>
