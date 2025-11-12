@@ -44,9 +44,9 @@
         }
         
         .logo-text {
-            font-family: 'Playfair Display', serif;
+            font-family: 'georgia', serif;
             font-weight: 900;
-            font-style: italic;
+            font-style: regular;
             color: var(--dark-pink);
             font-size: 28px;
             margin-left: 10px;
