@@ -4,6 +4,46 @@
 @section('page-title', 'Dashboard Overview')
 
 @section('content')
+<!-- === DASHBOARD CARDS === -->
+<div class="row g-4">
+            <div class="col-md-3 col-sm-6">
+                <div class="card-stat shadow-sm">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6>Total Reservations</h6>
+                            <h3>85</h3>
+                        </div>
+                        <i class="bi bi-calendar-check"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card-stat shadow-sm">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6>Total Services</h6>
+                            <h3>12</h3>
+                        </div>
+                        <i class="bi bi-brush"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card-stat shadow-sm">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6>Total Staff</h6>
+                            <h3>8</h3>
+                        </div>
+                        <i class="bi bi-person-badge"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+<!-- === Recent Reservations === -->
 <div class="recent-reservations mt-5">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h3 class="bold" style="color:#ffffff; font-family:'Georgia', serif;">Recent Reservations</h3>

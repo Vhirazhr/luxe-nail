@@ -228,8 +228,8 @@ body {
     height: 80px;
     transition: all 0.3s ease;
     margin-top: 20px;
-    background-color: #fff; /* tambahin warna netral */
-    border: 2px solid #f8d7da; /* opsional, biar bayangan kontras */
+    background-color: #fff; 
+    border: 2px solid #f8d7da; 
     box-shadow: 0 6px 15px rgba(216, 122, 135, 0.4);
     border-radius: 50%;
 }
