@@ -1,3 +1,4 @@
+/* warna dasar */
 :root {
     --baby-pink: #f8d7da;
     --soft-pink: #f3b8c2;
@@ -8,12 +9,13 @@
     --text-light: #ffffff;
 }
 
+/* pengaturan halaman dashboard */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--text-dark);
 }
 
-/* === SIDEBAR === */
+/* === SIDEBAR utama === */
 .sidebar {
     height: 100vh;
     width: 240px;
@@ -25,7 +27,7 @@ body {
     padding: 2rem 1rem;
     box-shadow: 0 2px 8px rgba(216, 122, 135, 0.1);
 }
-
+/* Judul (LUXE NAIL) m*/
 .sidebar h4 {
     color: var(--dark-pink);
     font-weight: 600;
@@ -33,7 +35,7 @@ body {
     margin-bottom: 2rem;
     font-family: 'Georgia', serif;
 }
-
+/* Menu di sidebar */
 .sidebar a {
     display: block;
     padding: 0.7rem 1rem;
@@ -76,12 +78,12 @@ body {
     font-weight: 500;
     opacity: 0.9; 
 }
-
+/* Text heading tambahan */
 .topbar h3 {
     font-weight: 600;
     color: var(--dark-pink);
 }
-
+/* pembatas section  */
 .section-divider {
     border: none;
     height: 2px;
@@ -90,12 +92,12 @@ body {
     border-radius: 10px;
     margin: 3rem 0 2rem 0;
 }
-
+/*foto profile*/
 .user-info img {
     border: 2px solid var(--dark-pink);
 }
 
-/* === CARD STATS === */
+/* === CARD STATS dashboaord === */
 .card-stat {
     border: none;
     border-radius: 15px;
@@ -108,7 +110,7 @@ body {
 .card-stat:hover {
     transform: translateY(-3px);
 }
-
+/* isi card (Text dan Ikon) */
 .card-stat h6 {
     color: var(--text-dark);
     font-weight: 500;
@@ -125,7 +127,7 @@ body {
     color: var(--text-dark);
 }
 
-/* === RESPONSIVE === */
+/* === RESPONSIVE (table) === */
 @media (max-width: 768px) {
     .sidebar {
         width: 100%;
@@ -151,7 +153,7 @@ body {
     background-color: #fff0f5;
     transition: 0.3s;
 }
-
+/* warna tambahan */
 .text-pink {
     color: var(--dark-pink) !important;
 }
@@ -161,11 +163,11 @@ body {
 }
 
 .table thead th {
-    color: var(#451a2b);
+    color: var(--text-dark);
     font-family: 'Georgia', serif;
     font-weight: 600;
 }
-
+/* status warna */
 .badge {
     font-size: 0.85rem;
     font-weight: 500;
@@ -202,29 +204,6 @@ body {
     box-shadow: 0 4px 10px rgba(216, 122, 135, 0.5);
 }
 
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: 250px;
-    transition: all 0.3s ease;
-    z-index: 1000;
-}
-
-.sidebar.active {
-    left: -260px;
-}
-
-.main-content {
-    margin-left: 260px;
-    transition: all 0.3s ease;
-}
-
-.main-content.expanded {
-    margin-left: 0;
-}
-
 /* Biar tombol burger gak hilang */
 #toggleSidebar {
     background-color: #fff !important;
@@ -241,4 +220,59 @@ body {
     .main-content {
         margin-left: 0;
     }
+}
+
+/* === LOGO SAAT SIDEBAR COLLAPSE === */
+.sidebar-logo {
+    width: 80px;
+    height: 80px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    background-color: #fff; /* tambahin warna netral */
+    border: 2px solid #f8d7da; /* opsional, biar bayangan kontras */
+    box-shadow: 0 6px 15px rgba(216, 122, 135, 0.4);
+    border-radius: 50%;
+}
+
+/* === TOGGLE BUTTON === */
+#toggleSidebar {
+    background: var(--soft-pink);
+    color: var(--text-dark);
+    border: none;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+#toggleSidebar:hover {
+    background: var(--dark-pink);
+    color: var(--text-light);
+}
+
+/* === COLLAPSED SIDEBAR (MINIM MODE) === */
+.sidebar.collapsed {
+    width: 80px;
+    transition: all 0.3s ease;
+}
+
+.sidebar.collapsed a {
+    text-align: center;
+    font-size: 0;
+    padding: 0.8rem 0;
+}
+
+.sidebar.collapsed a i {
+    font-size: 1.3rem;
+    margin: 0;
+    color: var(--dark-pink);
+}
+
+.sidebar.collapsed h4 {
+    display: none;
+}
+
+.main-content.sidebar-collapsed {
+    margin-left: 80px;
+    transition: all 0.3s ease;
 }
