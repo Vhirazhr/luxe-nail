@@ -1,59 +1,64 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 💅 Nail Art Studio – Website Manajemen & Galeri Nail Art Berbasis Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Nama Kelompok
+1. Dimas Arya Sadewa
+2. Fakhira Zahrany putri Nurdin
+3. Hanin Mariyam Abiyyah Hendrik
+4. Shabrinna Qatrunnada
 
-## About Laravel
+## Dokumentasi API 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Login 
+dengan email
+<img width="1915" height="1030" alt="Image" src="https://github.com/user-attachments/assets/3c0e026e-cb91-4fe7-ad16-1251d7554cc7" />
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+dengan username
+<img width="1916" height="1068" alt="Image" src="https://github.com/user-attachments/assets/9d86143c-78ce-406e-a0c9-4a97473bb357" />
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+![Laravel](https://img.shields.io/badge/Laravel-10.x-FF2D20?logo=laravel)
+![PHP](https://img.shields.io/badge/PHP-8.1%2B-777BB4?logo=php)
+![License](https://img.shields.io/github/license/namauser/nail-art-studio)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+Selamat datang di **Nail Art Studio**, sebuah platform digital untuk para pecinta nail art! Website ini dibangun menggunakan framework **Laravel** dan dirancang untuk menampilkan portofolio nail art, menerima pemesanan, serta mengelola jadwal dan layanan studio.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 📌 Fitur Utama
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- 🖼️ **Galeri Nail Art** – Tampilkan koleksi desain nail art dengan kategori (misal: glitter, minimalis, floral, dll)
+- 📅 **Booking Online** – Pengguna dapat memesan layanan nail art berdasarkan ketersediaan jadwal
+- 🧾 **Manajemen Layanan** – Admin dapat menambah/mengedit/menghapus jenis layanan beserta harga
+- 👤 **Autentikasi Pengguna** – Sistem login untuk admin dan pelanggan
+- 📩 **Form Kontak** – Pengunjung dapat mengirim pesan langsung ke studio
+- 📊 **Dashboard Admin** – Ringkasan pesanan, statistik kunjungan, dan pengelolaan konten
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🛠️ Teknologi yang Digunakan
 
-## Contributing
+- **Framework**: Laravel 10.x
+- **Frontend**: Blade Templating, Bootstrap 5, Vanilla JavaScript
+- **Database**: MySQL / PostgreSQL
+- **Authentication**: Laravel Breeze
+- **File Storage**: Local / Cloud (opsional)
+- **Deployment Ready**: Cocok untuk hosting di Laravel Forge, Heroku, atau VPS
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 🚀 Instalasi
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di lingkungan lokal Anda:
 
-## Security Vulnerabilities
+### Prasyarat
+- PHP 8.1 atau lebih tinggi
+- Composer
+- Node.js & npm
+- MySQL / PostgreSQL
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Langkah Instalasi
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. **Clone repositori ini:**
+   ```bash
+   git clone https://github.com/namauser/nail-art-studio.git
+   cd nail-art-studio
