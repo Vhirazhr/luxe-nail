@@ -201,3 +201,44 @@ body {
     color: var(--text-light);
     box-shadow: 0 4px 10px rgba(216, 122, 135, 0.5);
 }
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar.active {
+    left: -260px;
+}
+
+.main-content {
+    margin-left: 260px;
+    transition: all 0.3s ease;
+}
+
+.main-content.expanded {
+    margin-left: 0;
+}
+
+/* Biar tombol burger gak hilang */
+#toggleSidebar {
+    background-color: #fff !important;
+    z-index: 1100;
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        left: -260px;
+    }
+    .sidebar.active {
+        left: 0;
+    }
+    .main-content {
+        margin-left: 0;
+    }
+}
