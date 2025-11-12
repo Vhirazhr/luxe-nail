@@ -17,3 +17,8 @@ Route::get('/calendar', [ReservationController::class, 'calendar'])->name('calen
 Route::get('/schedule-data', [ReservationController::class, 'getScheduleData'])->name('schedule.data');
 Route::get('/date-details/{date}', [ReservationController::class, 'getDateDetails'])->name('date.details');
 Route::get('/check-availability', [ReservationController::class, 'checkAvailability']);
+
+// LOGIN PAGE
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
