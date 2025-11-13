@@ -1,0 +1,100 @@
+/* ===== CALENDAR WRAPPER ===== */
+.calendar-box {
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #f3c6d1;
+    padding: 20px;
+}
+
+/* ===== HEADER DAYS ===== */
+.calendar-days-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: 600;
+    color: #a5425d;
+    margin-bottom: 10px;
+}
+
+/* ===== GRID TANGGAL ===== */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+
+/* ===== DAYS ===== */
+.calendar-day {
+    padding: 12px;
+    border-radius: 12px;
+    background: #fff;
+    text-align: center;
+    border: 2px solid #f3d7dd;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.calendar-day:hover {
+    border-color: #b71f49;
+    transform: scale(1.05);
+}
+
+.calendar-day.booked {
+    background: #d26b82;
+    color: white;
+}
+
+.calendar-day.available {
+    background: #fff;
+    color: #451a2b;
+}
+
+.empty {
+    background: transparent;
+}
+
+/* Header hari */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.calendar-grid .header {
+    text-align: center;
+    font-weight: bold;
+    color: #a5425d;
+    padding-bottom: 8px;
+}
+
+.calendar-day {
+    padding: 12px;
+    background: #fff;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+    border: 2px solid #f3d7dd;
+    transition: 0.2s;
+}
+
+.calendar-day.booked {
+    background: #d26b82;
+    color: #fff;
+}
+
+.calendar-day.available {
+    background: #fff;
+    color: #451a2b;
+}
+
+.calendar-day:hover {
+    transform: scale(1.05);
+    border-color: #b71f49;
+}
+
+.empty {
+    background: transparent;
+}

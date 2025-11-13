@@ -20,7 +20,7 @@
             <i class="bi bi-house-door me-2"></i> Dashboard
         </a>
 
-        <a href="{{ route('reservations.create') }}" class="{{ request()->routeIs('reservations.create') ? 'active' : '' }}">
+        <a href="{{ route('dashboard.reservations') }}" class="{{ request()->routeIs('dashboard.reservations') ? 'active' : '' }}">
             <i class="bi bi-calendar-check me-2"></i> Reservations
         </a>
 
