@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\Api\AuthController; 
-
+use App\Http\Controllers\OwnerReservationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,3 +59,8 @@ Route::get('/check-availability', [ReservationController::class, 'checkAvailabil
 
 Route::view('/staff', 'staff.index')->name('staff.index');
 Route::view('/profile', 'profile.index')->name('profile.index');
+Route::get('/dashboard/reservations', [OwnerReservationController::class, 'index'])
+    ->name('dashboard.reservations');
+
+
+    
