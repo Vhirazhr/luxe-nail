@@ -1,0 +1,279 @@
+/* wrapper mengikuti layout dashboard */
+.income-wrapper {
+    padding: 30px;
+    color: white;
+}
+
+/* title */
+.page-title {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.page-subtitle {
+    opacity: 0.85;
+    font-size: 20px !important;
+    margin-bottom: 20px;
+}
+
+/*============= Filter ==============*/
+/* FILTER CARD */
+.filter-card {
+    background: linear-gradient(180deg, #ffffff 0%, #fff3f7 100%);
+    border-radius: 20px;
+    padding: 28px 30px;
+    color: #4A0F25;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.06);
+}
+
+/* TITLE */
+.filter-card .card-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+/* GRID */
+.filter-grid-beauty {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+/* ITEM */
+.filter-item {
+    display: flex;
+    flex-direction: column;
+}
+
+/* LABEL */
+.filter-label-beauty {
+    font-size: 14px;
+    font-weight: 600;
+    color: #7a2b44;
+    margin-bottom: 6px;
+    font-family: 'Georgia', serif;
+}
+
+/* INPUT STYLE */
+.filter-input-beauty {
+    background: #fff8fa;
+    border: 2px solid #f7cdd9;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #4A0F25;
+    outline: none;
+    font-family: 'Georgia', serif;
+    transition: 0.2s;
+}
+
+.filter-input-beauty:focus {
+    border-color: #e99aad;
+    background: #fff2f7;
+}
+
+/* BUTTON */
+.filter-btn-beauty {
+    margin-top: 28px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 12px;
+    background: #e88fa1;
+    color: white;
+    font-weight: bold;
+    font-family: 'Georgia', serif;
+    transition: 0.2s;
+    cursor: pointer;
+    box-shadow: 0px 3px 10px rgba(233,137,159,0.3);
+}
+
+.filter-btn-beauty:hover {
+    background: #d97c8f;
+}
+
+/* BUTTON ALIGN */
+.filter-button-box {
+    display: flex;
+    align-items: end;
+}
+
+/*============= Summary ==============*/
+/* summary */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.summary-card {
+    background: linear-gradient(90deg, #f8dce7, #f4c6d2);
+    padding: 18px;
+    color: #4A0F25;
+    border-radius: 14px;
+}
+
+/* filters */
+.card-section {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    color: #4A0F25;
+    margin-bottom: 25px;
+}
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+/* payment list */
+.payment-item {
+    background: #fdeff4;
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* chart */
+.chart-placeholder {
+    background: #fdeff4;
+    padding: 40px;
+    text-align: center;
+    border-radius: 12px;
+    color: #4A0F25a0;
+    font-style: italic;
+}
+
+/* table */
+.income-table {
+    width: 100%;
+    color: #4A0F25;
+    margin-top: 15px;
+}
+
+.income-table th, .income-table td {
+    padding: 12px 6px;
+}
+
+/* badges */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.income-page {
+    padding: 30px 40px;
+    color: white;
+    font-family: 'Georgia', serif !important;
+}
+
+/* FIX SPACING FOR CHART */
+.income-chart-card {
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+}
+
+/* DETAIL INCOME CARD (LIKE RECENT RESERVATIONS) */
+.detail-card {
+    background: white;
+    border-radius: 20px;
+    padding: 22px 25px;
+    color: #4A0F25;
+    margin-bottom: 60px;
+}
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.detail-title {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* Table */
+.detail-table {
+    width: 100%;
+    font-size: 15px;
+    border-collapse: separate;
+    border-spacing: 0 6px;
+}
+
+.detail-table thead th {
+    text-align: left;
+    padding-bottom: 10px;
+    font-weight: 700;
+    color: #4A0F25;
+}
+
+.detail-table tbody tr {
+    background: #fff9fb;
+    border-radius: 14px;
+}
+
+.detail-table tbody tr td {
+    padding: 12px 10px;
+}
+
+/* Customer cell with icon */
+.customer-cell i {
+    color: #d28aa8;
+}
+
+/* Status badges */
+.status-badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.reservation-row:hover {
+    background-color: #fff0f6 !important;
+    transition: 0.2s;
+}
+
+.text-pink {
+    color: #d63384;
+}
+
+/* DETAIL INCOME TABLE FIX */
+.detail-table th,
+.detail-table td {
+    padding: 10px 20px !important;   /* jarak kiri-kanan nyaman */
+}
+
+/* ratain kolom biar rapi */
+.detail-table th {
+    text-align: center;
+}
+
+.detail-table td:nth-child(1),
+.detail-table td:nth-child(3),
+.detail-table td:nth-child(4),
+.detail-table td:nth-child(5) {
+    text-align: center; /* tanggal, reservasi, total, status */
+}
+
+.detail-table td:nth-child(2) {
+    padding-left: 25px !important;  /* biar icon + nama geser dikit */
+}
+
+/* row hover biar elegan */
+.detail-table tbody tr:hover {
+    background-color: #fff2f7 !important;
+    transition: 0.2s;
+}
+
+.completed { background: #bef5c0; color: #2a8a2f; }
+.pending   { background: #ffe9a8; color: #b38300; }
+.onprocess { background: #ffc8d2; color: #b12d40; }
+.cancel    { background: #ffb3b3; color: #9b0000; }

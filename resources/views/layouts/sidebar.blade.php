@@ -28,8 +28,8 @@
             <i class="bi bi-people me-2"></i> Staff
         </a>
 
-        <a href="#">
-            <i class="bi bi-cash-stack me-2"></i> Incomes
+        <a href="{{ route('dashboard.income') }}" class="{{ request()->routeIs('dashboard.income') ? 'active' : '' }}">
+            <i class="bi bi-cash-stack me-2"></i> Income
         </a>
 
         <a href="{{ route('profile.index') }}" class="{{ request()->routeIs('profile.index') ? 'active' : '' }}">

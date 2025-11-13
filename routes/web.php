@@ -6,6 +6,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\Api\AuthController; 
 use App\Http\Controllers\OwnerReservationController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\IncomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +59,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/profile/change-password', [ProfileController::class, 'updatePassword'])->name('profile.password');
 });
 
+// ====== INCOME ======= //
+Route::view('/dashboard/income', 'dashboard.income.dashboard_income')->name('dashboard.income');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard.index');
