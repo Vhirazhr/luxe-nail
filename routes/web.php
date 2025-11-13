@@ -45,4 +45,3 @@ Route::get('/check-availability', [ReservationController::class, 'checkAvailabil
 Route::get('/login', function () {
     return redirect()->route('login.page');
 })->name('login');
-
