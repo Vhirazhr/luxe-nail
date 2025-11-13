@@ -30,7 +30,7 @@
                     <a class="nav-link" href="#contact">Contact</a>
                     <a class="nav-link" href="{{ route('calendar') }}">Schedule</a>
                     <a class="btn btn-book" href="{{ route('reservations.create') }}">Book Now</a>
-                    <a class="btn btn-login-nav" href="{{ route('login') }}">Login</a>
+                    <a class="btn btn-login-nav" href="{{ route('login.page') }}">Login</a>
                 </nav>
                 <div class="d-lg-none">
                     <button class="btn btn-book" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
@@ -112,7 +112,7 @@
 
         <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         // Header scroll effect
         window.addEventListener('scroll', function() {
@@ -125,7 +125,7 @@
                 header.style.boxShadow = '0 2px 15px rgba(214, 122, 135, 0.1)';
             }
         });
-        
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -152,32 +152,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextButton = document.querySelector('.gallery-next');
     const prevButton = document.querySelector('.gallery-prev');
     const dots = document.querySelectorAll('.gallery-dot');
-    
+
     const slideWidth = 325; // 300px + 25px gap
     let currentSlide = 0;
     let autoScrollInterval;
     let isDragging = false;
     let startPos = 0;
-    
+
     // Total original slides (excluding duplicates)
     const originalSlides = 20;
-    
+
     // Initialize slider
     function initSlider() {
         updateSliderPosition();
         startAutoScroll();
     }
-    
+
     // Update slider position
     function updateSliderPosition() {
         track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
-        
+
         // Update dots
         dots.forEach((dot, index) => {
             dot.classList.toggle('active', index === (currentSlide % dots.length));
         });
     }
-    
+
     // Next slide
     function nextSlide() {
         if (currentSlide >= originalSlides - 1) {
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         updateSliderPosition();
     }
-    
+
     // Previous slide
     function prevSlide() {
         if (currentSlide <= 0) {
@@ -209,28 +209,28 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         updateSliderPosition();
     }
-    
+
     // Auto-scroll functionality
     function startAutoScroll() {
         autoScrollInterval = setInterval(nextSlide, 4000);
     }
-    
+
     function resetAutoScroll() {
         clearInterval(autoScrollInterval);
         startAutoScroll();
     }
-    
+
     // Event listeners
     nextButton.addEventListener('click', () => {
         nextSlide();
         resetAutoScroll();
     });
-    
+
     prevButton.addEventListener('click', () => {
         prevSlide();
         resetAutoScroll();
     });
-    
+
     // Dot navigation
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
@@ -239,27 +239,27 @@ document.addEventListener('DOMContentLoaded', function() {
             resetAutoScroll();
         });
     });
-    
+
     // Touch/swipe functionality
     track.addEventListener('touchstart', (e) => {
         startPos = e.touches[0].clientX;
         isDragging = true;
         track.style.transition = 'none';
     });
-    
+
     track.addEventListener('touchmove', (e) => {
         if (!isDragging) return;
         const currentPosition = e.touches[0].clientX;
         const diff = currentPosition - startPos;
         track.style.transform = `translateX(-${currentSlide * slideWidth + diff}px)`;
     });
-    
+
     track.addEventListener('touchend', (e) => {
         if (!isDragging) return;
         isDragging = false;
         const endPos = e.changedTouches[0].clientX;
         const diff = startPos - endPos;
-        
+
         if (Math.abs(diff) > 50) {
             if (diff > 0) {
                 nextSlide();
@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function() {
         track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         resetAutoScroll();
     });
-    
+
     // Mouse events for desktop drag
     track.addEventListener('mousedown', (e) => {
         startPos = e.clientX;
@@ -280,20 +280,20 @@ document.addEventListener('DOMContentLoaded', function() {
         track.style.transition = 'none';
         track.style.cursor = 'grabbing';
     });
-    
+
     track.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
         const currentPosition = e.clientX;
         const diff = currentPosition - startPos;
         track.style.transform = `translateX(-${currentSlide * slideWidth + diff}px)`;
     });
-    
+
     track.addEventListener('mouseup', (e) => {
         if (!isDragging) return;
         isDragging = false;
         const endPos = e.clientX;
         const diff = startPos - endPos;
-        
+
         if (Math.abs(diff) > 50) {
             if (diff > 0) {
                 nextSlide();
@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function() {
         track.style.cursor = 'grab';
         resetAutoScroll();
     });
-    
+
     track.addEventListener('mouseleave', () => {
         if (isDragging) {
             isDragging = false;
@@ -317,17 +317,17 @@ document.addEventListener('DOMContentLoaded', function() {
             resetAutoScroll();
         }
     });
-    
+
     // Pause auto-scroll on hover
     track.addEventListener('mouseenter', () => {
         clearInterval(autoScrollInterval);
         track.style.cursor = 'grab';
     });
-    
+
     track.addEventListener('mouseleave', () => {
         startAutoScroll();
     });
-    
+
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') {
@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', function() {
             resetAutoScroll();
         }
     });
-    
+
     // Initialize slider
     initSlider();
 });
@@ -348,12 +348,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.location.hash) {
         const targetId = window.location.hash;
         const target = document.querySelector(targetId);
-        
+
         if (target) {
             setTimeout(() => {
                 const headerHeight = document.querySelector('.luxe-header').offsetHeight;
                 const targetPosition = target.offsetTop - headerHeight;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -365,7 +365,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
-    
+
 </body>
 </html>
 </body>
