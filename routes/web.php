@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\Api\AuthController; 
 use App\Http\Controllers\OwnerReservationController;
+use App\Http\Controllers\ProfileController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,6 +51,14 @@ Route::get('/schedule-data', [ReservationController::class, 'getScheduleData'])-
 Route::get('/date-details/{date}', [ReservationController::class, 'getDateDetails'])->name('date.details');
 Route::get('/check-availability', [ReservationController::class, 'checkAvailability']);
 
+// ====== PROFILE (setelah login sukses) ======
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('/profile/change-password', [ProfileController::class, 'updatePassword'])->name('profile.password');
+});
+
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard.index');
 // });
@@ -58,7 +68,6 @@ Route::get('/check-availability', [ReservationController::class, 'checkAvailabil
 
 
 Route::view('/staff', 'staff.index')->name('staff.index');
-Route::view('/profile', 'profile.index')->name('profile.index');
 Route::get('/dashboard/reservations', [OwnerReservationController::class, 'index'])
     ->name('dashboard.reservations');
 
