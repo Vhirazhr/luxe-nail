@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\AuthController; // tambahkan ini untuk pakai AuthCo
 // ====== LOGIN PAGE (Web) ======
 Route::view('/login-page', 'auth.login')->name('login.page');
 
+<<<<<<< HEAD
 Route::post('/logout', function () {
     Auth::logout();
     session()->invalidate();
@@ -22,6 +23,8 @@ Route::post('/logout', function () {
     return redirect('/login-page')->with('success', 'You have been logged out.');
 })->name('logout');
 
+=======
+>>>>>>> bba303c4c775811fb25965b5fa655dc22389ac33
 // Route POST untuk form login web
 Route::post('/login-page', [AuthController::class, 'login'])->name('login.page.submit');
 
@@ -49,6 +52,7 @@ Route::get('/schedule-data', [ReservationController::class, 'getScheduleData'])-
 Route::get('/date-details/{date}', [ReservationController::class, 'getDateDetails'])->name('date.details');
 Route::get('/check-availability', [ReservationController::class, 'checkAvailability']);
 
+<<<<<<< HEAD
 // Route::get('/dashboard', function () {
 //     return view('dashboard.index');
 // });
@@ -59,3 +63,9 @@ Route::get('/check-availability', [ReservationController::class, 'checkAvailabil
 
 Route::view('/staff', 'staff.index')->name('staff.index');
 Route::view('/profile', 'profile.index')->name('profile.index');
+=======
+// ====== LOGIN DEFAULT (Laravel / redirect ke form custom) ======
+Route::get('/login', function () {
+    return redirect()->route('login.page');
+})->name('login');
+>>>>>>> bba303c4c775811fb25965b5fa655dc22389ac33
