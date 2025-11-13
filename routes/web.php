@@ -26,3 +26,6 @@ Route::get('/dashboard', function () {
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
+
+Route::view('/staff', 'staff.index')->name('staff.index');
+Route::view('/profile', 'profile.index')->name('profile.index');
