@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\OwnerReservationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\IncomeController;
+use App\Http\Controllers\StaffController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,7 +71,10 @@ Route::view('/dashboard/income', 'dashboard.income.dashboard_income')->name('das
 // ====== LOGIN DEFAULT (Laravel / redirect ke form custom) ======
 
 
-Route::view('/staff', 'staff.index')->name('staff.index');
+Route::middleware('auth')->group(function () {
+    Route::resource('staff', StaffController::class);
+});
+
 Route::get('/dashboard/reservations', [OwnerReservationController::class, 'index'])
     ->name('dashboard.reservations');
 
