@@ -9,12 +9,12 @@
         </button>
     </div>
 
-    <img src="{{ asset('img/luxe-nail-1.png') }}" alt="Luxe Nail Logo" width="80" height="80"
-        class="sidebar-logo rounded-circle shadow-sm mb-3">
+    <img src="{{ asset('img/luxe-nail-1.png') }}" alt="Luxe Nail Logo"
+        width="80" height="80" class="sidebar-logo rounded-circle shadow-sm mb-3">
 
     <h4 class="fw-bold">LUXE NAIL</h4>
     <hr class="divider">
-    
+
     <div class="menu text-start mt-4">
         <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard.index') ? 'active' : '' }}">
             <i class="bi bi-house-door me-2"></i> Dashboard
@@ -31,12 +31,15 @@
         <a href="{{ route('profile.index') }}" class="{{ request()->routeIs('profile.index') ? 'active' : '' }}">
             <i class="bi bi-person me-2"></i> Profile
         </a>
+
         <hr class="divider">
-        <form method="POST" action="{{ route('logout') }}">
+
+        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="text-danger fw-semibold" style="text-decoration:none;">
+            <i class="bi bi-box-arrow-right me-2"></i> Logout
+        </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
-            <button type="submit" class="btn btn-link text-danger fw-semibold p-0 text-start" style="text-decoration:none;">
-                <i class="bi bi-box-arrow-right me-2"></i> Logout
-            </button>
         </form>
     </div>
 </div>
