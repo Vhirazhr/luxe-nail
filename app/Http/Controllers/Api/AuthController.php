@@ -4,71 +4,75 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 class AuthController extends Controller
 {
-    // -------------------- LOGIN --------------------
+    // === LOGIN UNIVERSAL (Web + API) ===
     public function login(Request $request)
     {
         $request->validate([
-            'password' => 'required',
-            'email' => 'nullable|email',
-            'username' => 'nullable|string',
+            'name' => 'required|string',
+            'password' => 'required|string',
         ]);
 
-        $email = $request->input('email');
-        $username = $request->input('username');
-        $password = $request->input('password');
+        $user = User::where('name', $request->name)->first();
 
-        // Tentukan kredensial yang dipakai (email atau username)
-        if ($email) {
-            $credentials = ['email' => $email, 'password' => $password];
-        } elseif ($username) {
-            $credentials = ['name' => $username, 'password' => $password];
-        } else {
-            if (!$request->expectsJson()) {
-                return back()->withErrors(['login' => 'Email atau username harus diisi!']);
+        // ====== VALIDASI USER ======
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            if ($request->expectsJson()) {
+                return response()->json(['message' => 'Invalid credentials'], 401);
             }
-            return response()->json(['message' => 'Email or username is required'], 422);
+            return back()->withErrors(['name' => 'Invalid username or password.']);
         }
 
-        // Cek login valid atau tidak
-        if (!Auth::attempt($credentials)) {
-            if (!$request->expectsJson()) {
-                return back()->withErrors(['login' => 'Email atau password salah!']);
-            }
-            return response()->json(['message' => 'Invalid credentials'], 401);
-        }
-
-        $user = Auth::user();
-        $token = $user->createToken('api_token')->plainTextToken;
-
-        // 🔹 Kalau dari API / Postman
+        // ====== LOGIN DARI API (MOBILE) ======
         if ($request->expectsJson()) {
+            // ❌ Larang admin login dari mobile
+            if ($user->role !== 'nail_artist') {
+                return response()->json(['message' => 'Access denied: Admins cannot log in from mobile.'], 403);
+            }
+
+            $token = $user->createToken('api_token')->plainTextToken;
+
             return response()->json([
                 'message' => 'Login successful',
-                'access_token' => $token,
+                'user' => [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'role' => $user->role,
+                ],
+                'token' => $token,
                 'token_type' => 'Bearer',
-                'user' => $user
             ]);
         }
 
-        // 🔹 Kalau dari form web biasa
-        return redirect('/dashboard')->with('success', 'Login berhasil!');
+        // ====== LOGIN DARI WEB ======
+        // ❌ Larang nail artist login dari web
+        if ($user->role !== 'admin') {
+            return back()->withErrors(['access' => 'Access denied: Only admins can log in via web.']);
+        }
+
+        Auth::login($user);
+        $request->session()->regenerate();
+
+        return redirect()->route('dashboard')->with('success', 'Welcome back, Admin!');
     }
 
-    // -------------------- LOGOUT --------------------
+    // === LOGOUT UNIVERSAL ===
     public function logout(Request $request)
     {
-        $request->user()->tokens()->delete();
-
         if ($request->expectsJson()) {
-            return response()->json(['message' => 'Logged out']);
+            $request->user()->tokens()->delete();
+            return response()->json(['message' => 'Logged out successfully']);
         }
 
         Auth::logout();
-        return redirect('/login-page')->with('success', 'Berhasil logout!');
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login-page')->with('success', 'You have been logged out.');
     }
 }

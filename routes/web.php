@@ -1,9 +1,11 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReservationController;
-use App\Http\Controllers\Api\AuthController; // tambahkan ini untuk pakai AuthController
+use App\Http\Controllers\Api\AuthController;
+ // Sekarang pakai 1 controller hybrid
 
 /*
 |--------------------------------------------------------------------------
@@ -14,19 +16,11 @@ use App\Http\Controllers\Api\AuthController; // tambahkan ini untuk pakai AuthCo
 // ====== LOGIN PAGE (Web) ======
 Route::view('/login-page', 'auth.login')->name('login.page');
 
-<<<<<<< HEAD
-Route::post('/logout', function () {
-    Auth::logout();
-    session()->invalidate();
-    session()->regenerateToken();
-
-    return redirect('/login-page')->with('success', 'You have been logged out.');
-})->name('logout');
-
-=======
->>>>>>> bba303c4c775811fb25965b5fa655dc22389ac33
 // Route POST untuk form login web
 Route::post('/login-page', [AuthController::class, 'login'])->name('login.page.submit');
+
+// ====== LOGOUT WEB ======
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // ====== DASHBOARD (setelah login sukses) ======
 Route::get('/dashboard', function () {
@@ -43,8 +37,7 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/reservations', [ReservationController::class, 'create'])->name('reservations.create');
 Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
 Route::get('/reservations/thank-you', [ReservationController::class, 'thankYou'])->name('reservations.thank-you');
-Route::get('/reservations/{queue_number}/download', [ReservationController::class, 'downloadPdf'])
-    ->name('reservations.download');
+Route::get('/reservations/{queue_number}/download', [ReservationController::class, 'downloadPdf'])->name('reservations.download');
 
 // ====== KALENDER & CEK JADWAL ======
 Route::get('/calendar', [ReservationController::class, 'calendar'])->name('calendar');
@@ -52,20 +45,6 @@ Route::get('/schedule-data', [ReservationController::class, 'getScheduleData'])-
 Route::get('/date-details/{date}', [ReservationController::class, 'getDateDetails'])->name('date.details');
 Route::get('/check-availability', [ReservationController::class, 'checkAvailability']);
 
-<<<<<<< HEAD
-// Route::get('/dashboard', function () {
-//     return view('dashboard.index');
-// });
-
-// LOGIN PAGE
-// ====== LOGIN DEFAULT (Laravel / redirect ke form custom) ======
-
-
+// ====== VIEW TAMBAHAN ======
 Route::view('/staff', 'staff.index')->name('staff.index');
 Route::view('/profile', 'profile.index')->name('profile.index');
-=======
-// ====== LOGIN DEFAULT (Laravel / redirect ke form custom) ======
-Route::get('/login', function () {
-    return redirect()->route('login.page');
-})->name('login');
->>>>>>> bba303c4c775811fb25965b5fa655dc22389ac33
