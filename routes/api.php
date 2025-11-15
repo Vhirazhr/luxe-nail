@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\api\AuthController;
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ReservationController;
 
 /*
@@ -14,7 +14,9 @@ use App\Http\Controllers\Api\ReservationController;
 
 // ====== AUTH (Login & Logout) ======
 Route::post('/login', [AuthController::class, 'login'])->name('api.login');
-Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum')->name('api.logout');
+Route::post('/logout', [AuthController::class, 'logout'])
+    ->middleware('auth:sanctum')
+    ->name('api.logout');
 
 // ====== USER INFO (Protected) ======
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -22,7 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // ====== RESERVATION API (Protected) ======
-Route::middleware('auth:sanctum')->group(function () {
+Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
     Route::get('/reservations', [ReservationController::class, 'index']);
     Route::post('/reservations', [ReservationController::class, 'store']);
     Route::get('/reservations/{queue_number}', [ReservationController::class, 'show']);

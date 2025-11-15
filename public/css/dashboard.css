@@ -234,6 +234,15 @@ body {
     border-radius: 50%;
 }
 
+/* === GARIS PEMBATAS DI SIDEBAR === */
+.sidebar .divider {
+    border: none;
+    height: 2px;
+    background-color: #d87a87; /* warna garis sidebar */
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
 /* === TOGGLE BUTTON === */
 #toggleSidebar {
     background: var(--soft-pink);
